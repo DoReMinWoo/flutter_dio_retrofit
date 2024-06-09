@@ -1,5 +1,3 @@
-
-
 import 'package:dio/dio.dart';
 import 'package:flutter_dio_retrofit/util/logger.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -52,16 +50,16 @@ class DioInterceptor extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    log.d(
-        ' [Response ${response.requestOptions.method}] ${response.requestOptions.uri}');
-    log.d('Response ${response.data}');
+    log.d('State Code : ${response.statusCode}\n'
+        '${response.data}');
     return super.onResponse(response, handler);
   }
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     // AccessToken 만료시 RefreshToken으로 재발급
-    log.e('Error [${err.requestOptions.method}] ${err.requestOptions.uri}');
+    log.e('State Code : ${err.response!.statusCode}\n'
+        'Error Message : ${err.response!.statusMessage}');
     //
     // final refreshToken = await storage.read(key: REFRESH_TOKEN_KEY);
     //

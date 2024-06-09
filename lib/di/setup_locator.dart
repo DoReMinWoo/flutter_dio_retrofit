@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_dio_retrofit/common/api/dio_client.dart';
 import 'package:flutter_dio_retrofit/data/data_source/reqres_data_source.dart';
 import 'package:flutter_dio_retrofit/data/repository_impl/reqres_repository_impl.dart';
@@ -13,11 +12,12 @@ void setupLocator() {
   final dioClient = DioClient();
   getIt.registerSingleton<DioClient>(dioClient);
 
-  getIt.registerLazySingleton<ReqresService>(() => ReqresService(getIt<DioClient>().dio));
+  getIt.registerLazySingleton<ReqresService>(
+      () => ReqresService(getIt<DioClient>().dio));
   getIt.registerLazySingleton<ReqresDataSource>(
-          () => ReqresDataSource(reqresService: getIt<ReqresService>()));
+      () => ReqresDataSource(reqresService: getIt<ReqresService>()));
   getIt.registerLazySingleton<ReqresRepository>(
-          () => ReqresRepositoryImpl(getIt<ReqresDataSource>()));
+      () => ReqresRepositoryImpl(getIt<ReqresDataSource>()));
   getIt.registerLazySingleton<GetUserUseCase>(
-          () => GetUserUseCase(repository: getIt<ReqresRepository>()));
+      () => GetUserUseCase(repository: getIt<ReqresRepository>()));
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dio_retrofit/presentation/provider/user_provider.dart';
-import 'package:flutter_dio_retrofit/util/logger.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UserScreen extends ConsumerStatefulWidget {
@@ -25,7 +24,6 @@ class UserScreenState extends ConsumerState<UserScreen> {
             loading: () => const CircularProgressIndicator(),
             data: (reqresEntity) {
               final users = reqresEntity;
-              log.d(users.toString());
               return ListView.builder(
                 itemCount: users.length,
                 itemBuilder: (context, index) {

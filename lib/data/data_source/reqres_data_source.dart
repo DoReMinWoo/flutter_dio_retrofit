@@ -1,14 +1,14 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_dio_retrofit/data/models/response/reqres_model_response.dart';
-import 'package:retrofit/http.dart';
+import 'package:flutter_dio_retrofit/data/service/reqres_service.dart';
+import 'package:get_it/get_it.dart';
 
-part 'reqres_data_source.g.dart';
+class ReqresDataSource {
+  final ReqresService _reqresService;
 
-@RestApi()
-abstract class ReqresDataSource {
-  factory ReqresDataSource(Dio dio) = _ReqresDataSource;
+  ReqresDataSource({required ReqresService reqresService})
+      : _reqresService = reqresService;
 
-  @FormUrlEncoded()
-  @GET("/api/users?page=2")
-  Future<ReqresModelResponse> getUsers();
+  Future<ReqresModelResponse> getUser() {
+    return _reqresService.getUsers();
+  }
 }

@@ -3,9 +3,12 @@ import 'package:flutter_dio_retrofit/presentation/view/user_screen.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'di/setup_locator.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
+  setupLocator();
   runApp(const ProviderScope(child: MyApp()));
 }
 

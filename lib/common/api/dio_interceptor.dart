@@ -10,7 +10,7 @@ class DioInterceptor extends Interceptor {
   @override
   void onRequest(
       RequestOptions options, RequestInterceptorHandler handler) async {
-    logger.d('Request [${options.method}] ${options.uri}');
+    log.d('Request [${options.method}] ${options.uri}');
 
     // // 보내려는 요청의 헤더
     // if (options.headers['accessToken'] == 'true') {
@@ -27,16 +27,16 @@ class DioInterceptor extends Interceptor {
 
   @override
   void onResponse(Response response, ResponseInterceptorHandler handler) {
-    logger.d(
+    log.d(
         ' [Response ${response.requestOptions.method}] ${response.requestOptions.uri}');
-    logger.d('Response ${response.data}');
+    log.d('Response ${response.data}');
     return super.onResponse(response, handler);
   }
 
   @override
   void onError(DioException err, ErrorInterceptorHandler handler) async {
     // AccessToken 만료시 RefreshToken으로 재발급
-    logger.e('Error [${err.requestOptions.method}] ${err.requestOptions.uri}');
+    log.e('Error [${err.requestOptions.method}] ${err.requestOptions.uri}');
     //
     // final refreshToken = await storage.read(key: REFRESH_TOKEN_KEY);
     //

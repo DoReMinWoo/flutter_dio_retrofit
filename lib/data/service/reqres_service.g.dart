@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'reqres_data_source.dart';
+part of 'reqres_service.dart';
 
 // **************************************************************************
 // RetrofitGenerator
@@ -8,8 +8,8 @@ part of 'reqres_data_source.dart';
 
 // ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers
 
-class _ReqresDataSource implements ReqresDataSource {
-  _ReqresDataSource(
+class _ReqresService implements ReqresService {
+  _ReqresService(
     this._dio, {
     this.baseUrl,
   });

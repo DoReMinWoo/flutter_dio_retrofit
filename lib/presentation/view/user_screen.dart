@@ -23,16 +23,16 @@ class UserScreenState extends ConsumerState<UserScreen> {
         body: Center(
           child: userProviderResult.when(
             loading: () => const CircularProgressIndicator(),
-            data: (reqresModelResponse) {
-              final users = reqresModelResponse.data;
-              logger.d(users.toString());
+            data: (reqresEntity) {
+              final users = reqresEntity;
+              log.d(users.toString());
               return ListView.builder(
                 itemCount: users.length,
                 itemBuilder: (context, index) {
                   final user = users[index];
                   return ListTile(
                     leading: CircleAvatar(
-                      backgroundImage: NetworkImage(user.avatar!),
+                      backgroundImage: NetworkImage(user.avatar),
                     ),
                     title: Text('${user.firstName} ${user.lastName}'),
                     subtitle: Text(user.email),

@@ -3,7 +3,7 @@ import 'package:flutter_dio_retrofit/data/data_source/reqres_data_source.dart';
 import 'package:flutter_dio_retrofit/data/repository_impl/reqres_repository_impl.dart';
 import 'package:flutter_dio_retrofit/data/service/reqres_service.dart';
 import 'package:flutter_dio_retrofit/domain/repository/reqres_repository.dart';
-import 'package:flutter_dio_retrofit/domain/usecase/get_user_usecase.dart';
+import 'package:flutter_dio_retrofit/domain/usecase/get_user_use_case.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt getIt = GetIt.instance;

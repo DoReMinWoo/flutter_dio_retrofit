@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_dio_retrofit/presentation/provider/user_provider.dart';
+import 'package:flutter_dio_retrofit/presentation/view_model/user_view_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class UserScreen extends ConsumerStatefulWidget {
